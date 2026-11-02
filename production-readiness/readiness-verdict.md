@@ -37,3 +37,17 @@ Risk acceptance for rank 6: accepted because scope is local with no cloud spend;
 ## Local-to-production limits
 Even a future local GO would not approve real production. Real production would additionally need a real cloud environment, real traffic and data, a tested regional recovery and agreed targets.
 
+
+## Gate status
+UNVERIFIED scores 0 under the course policy because no evidence exists. It does not mean the control is known to be broken.
+
+| Gate | Status | Score | Why |
+|------|--------|-------|-----|
+| R2 | FAIL | 0 | deployment.yaml defines no readiness or liveness probes and no failure test exists (E02, E07, M-R2) |
+| O2 | UNVERIFIED | 0 | No dashboard or alert artifact (M-O2) |
+| S1 | UNVERIFIED | 0 | Only gitignore rules exist (E05); no secret scan (M-S1) |
+| S2 | UNVERIFIED | 0 | IAM defined in Terraform and syntax-valid (E04, E08) but never applied or tested (M-S2) |
+| D2 | UNVERIFIED | 0 | No restore ever run (M-D2) |
+| D3 | UNVERIFIED | 0 | Targets undefined and nothing measured (M-D3) |
+
+All six gates must PASS for a GO. None does, so the recommendation is NO-GO.
