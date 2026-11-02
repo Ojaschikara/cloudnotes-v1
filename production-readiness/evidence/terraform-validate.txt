@@ -1,0 +1,5 @@
+﻿Captured: 2026-11-02 17:04 local, Windows PowerShell
+Reviewed commit: b43cd700e4ebc10e93166dd5b1444d765cfa93ed
+Command: terraform -chdir=infra validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m

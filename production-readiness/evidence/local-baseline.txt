@@ -1,0 +1,55 @@
+﻿Captured: 2026-11-02 13:47 (local, Windows PowerShell)
+Reviewed commit: b43cd700e4ebc10e93166dd5b1444d765cfa93ed
+--- git log ---
+b43cd70 chore: stop tracking local database file
+b4c3947 Merge branch 'feature/cloudnotes-full-infra'
+2a6e2e8 chore: ignore terraform state, tfvars and local secrets
+ca75edd Add CloudNotes Kubernetes Service manifest
+04ade85 Add CloudNotes Kubernetes Deployment manifest
+816618f Containerize CloudNotes: add Dockerfile, fix Flask startup and host binding
+4ee82e9 feat: full CloudNotes infrastructure as Terraform (validated locally, zero cost)
+dbb899e first commit
+d52e916 Add cloudnotes-v1 assignment repository with local Flask app and architecture hints
+b743f2f Add CloudNotes architecture planning deliverable PDF and generation script
+--- tracked files ---
+.dockerignore
+.gitignore
+Dockerfile
+README.md
+api/routes.py
+app.py
+architecture-hints.md
+infra/.gitignore
+infra/main.tf
+infra/modules/compute/main.tf
+infra/modules/compute/outputs.tf
+infra/modules/compute/variables.tf
+infra/modules/database/main.tf
+infra/modules/database/outputs.tf
+infra/modules/database/variables.tf
+infra/modules/iam/main.tf
+infra/modules/iam/outputs.tf
+infra/modules/iam/variables.tf
+infra/modules/network/main.tf
+infra/modules/network/outputs.tf
+infra/modules/network/variables.tf
+infra/modules/storage/main.tf
+infra/modules/storage/outputs.tf
+infra/modules/storage/variables.tf
+infra/outputs.tf
+infra/providers.tf
+infra/terraform.tfvars.example
+infra/variables.tf
+k8s/deployment.yaml
+k8s/service.yaml
+requirements.txt
+uploads/.gitkeep
+utils/helpers.py
+--- tool versions ---
+Docker version 29.8.0, build 88096ef
+Client Version: v1.36.1
+Kustomize Version: v5.8.1
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+Terraform v1.15.8
+on windows_amd64
