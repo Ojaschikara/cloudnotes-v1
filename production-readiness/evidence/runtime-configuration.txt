@@ -1,0 +1,65 @@
+﻿Captured: 2026-11-02 13:48 (configuration only)
+--- Dockerfile ---
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "app.py"]
+--- k8s/deployment.yaml ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudnotes
+  labels:
+    app: cloudnotes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cloudnotes
+  template:
+    metadata:
+      labels:
+        app: cloudnotes
+    spec:
+      containers:
+        - name: cloudnotes
+          image: cloudnotes:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+--- k8s/service.yaml ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudnotes
+spec:
+  selector:
+    app: cloudnotes
+  ports:
+    - port: 80
+      targetPort: 5000
+--- infra file list (names only) ---
+infra/.gitignore
+infra/main.tf
+infra/modules/compute/main.tf
+infra/modules/compute/outputs.tf
+infra/modules/compute/variables.tf
+infra/modules/database/main.tf
+infra/modules/database/outputs.tf
+infra/modules/database/variables.tf
+infra/modules/iam/main.tf
+infra/modules/iam/outputs.tf
+infra/modules/iam/variables.tf
+infra/modules/network/main.tf
+infra/modules/network/outputs.tf
+infra/modules/network/variables.tf
+infra/modules/storage/main.tf
+infra/modules/storage/outputs.tf
+infra/modules/storage/variables.tf
+infra/outputs.tf
+infra/providers.tf
+infra/terraform.tfvars.example
+infra/variables.tf
