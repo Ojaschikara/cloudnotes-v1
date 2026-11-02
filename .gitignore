@@ -13,3 +13,5 @@ __pycache__/
 *.auto.tfvars
 crash.log
 .env
+
+database/*.db
