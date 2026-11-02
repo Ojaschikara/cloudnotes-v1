@@ -1,0 +1,21 @@
+# Copy this file to terraform.tfvars and adjust values as needed.
+# terraform.tfvars itself should NOT be committed (see .gitignore).
+
+project_name = "cloudnotes"
+region       = "us-central1"
+
+network_name = "cloudnotes-network"
+subnet_cidrs = {
+  web = "10.20.1.0/24"
+  app = "10.20.2.0/24"
+  db  = "10.20.3.0/24"
+}
+
+machine_type = "e2-micro"
+
+db_name = "cloudnotes-db"
+db_tier = "db-f1-micro"
+
+bucket_name = "cloudnotes-assets"
+
+iam_roles = ["roles/storage.objectViewer", "roles/cloudsql.client"]
