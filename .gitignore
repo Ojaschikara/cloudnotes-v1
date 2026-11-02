@@ -5,3 +5,11 @@ __pycache__/
 *.pyd
 .DS_Store
 *.swp
+
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.auto.tfvars
+crash.log
+.env
